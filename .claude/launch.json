@@ -1,0 +1,23 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "site",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["serve-site.js"],
+      "port": 5055
+    },
+    {
+      "name": "kristalis",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["serve-kristalis.js"],
+      "port": 5051
+    },
+    {
+      "name": "keiman-hero",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["serve-keiman.js"],
+      "port": 4173
+    }
+  ]
+}
