@@ -340,6 +340,50 @@
     grid.classList.add('is-marquee');
   }
 
+  /* ---------- Счётчик акции в Hero ----------
+     Акция действует до конца текущей недели: дедлайн — ближайшее воскресенье 23:59:59.
+     Считаем его заново на каждом тике, а не запоминаем один раз: тогда в понедельник
+     в 00:00 срок сам переносится на следующее воскресенье, и дату в тексте не нужно
+     править руками. Заодно это переживает открытую на несколько суток вкладку. */
+  function initHeroCountdown() {
+    const boxes = $$('.js-hero-counter');
+    if (!boxes.length) return;
+    const dateFmt = new Intl.DateTimeFormat('ru-RU', { day: 'numeric', month: 'long' });
+    const pad = n => String(n).padStart(2, '0');
+    const NB = ' ';
+
+    const endOfWeek = now => {
+      const d = new Date(now);
+      const dow = (d.getDay() + 6) % 7;   // Пн = 0 … Вс = 6
+      d.setDate(d.getDate() + (6 - dow)); // ближайшее воскресенье
+      d.setHours(23, 59, 59, 999);
+      return d;
+    };
+
+    const render = () => {
+      const now = new Date();
+      const end = endOfWeek(now);
+      const left = Math.max(0, Math.floor((end - now) / 1000));
+      const h = Math.floor(left / 3600);
+      const m = Math.floor((left % 3600) / 60);
+      const s = left % 60;
+      const dateText = dateFmt.format(end).replace(' ', NB); // «10 августа» → неразрывный пробел
+      boxes.forEach(box => {
+        const title = box.querySelector('.hero-offer__title');
+        if (title) title.textContent = 'До' + NB + dateText + ' консультация' + NB + '— бесплатно!';
+        const cells = $$('.hero-offer__cell', box);
+        if (cells.length >= 3) {
+          cells[0].textContent = pad(h);
+          cells[1].textContent = pad(m);
+          cells[2].textContent = pad(s);
+        }
+      });
+    };
+
+    render();
+    setInterval(render, 1000);
+  }
+
   /* ---------- Интерактивный точечный паттерн (подсветка следует за курсором) ---------- */
   function initDots() {
     if (prefersReduced) return;
@@ -464,6 +508,7 @@
     initCarousel();
     initReviews();
     initReviewsMarquee();
+    initHeroCountdown();
     initReveal();
     initDots();
     initExpandMedia();
