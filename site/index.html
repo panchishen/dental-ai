@@ -256,80 +256,88 @@
       </div>
     </section>
 
-    <!-- УСЛУГИ (аккордеон с наложением) -->
+    <!-- УСЛУГИ (аккордеон, карточки внахлёст) -->
     <section class="band" id="services">
       <h2 class="section-title text-h1 reveal"><span class="accent">Услуги</span> клиники</h2>
       <div class="accordion services-list" data-single="true" data-stagger="60">
-        <div class="accordion__item service-item reveal">
-          <div class="service-item__row">
-            <span class="acc__num text-body-lg">01</span>
-            <div class="service-item__main">
-              <button class="accordion__head" aria-expanded="false"><span class="acc__title service-item__title text-h3">Имплантация одного или&nbsp;нескольких зубов</span></button>
-              <div class="accordion__panel"><div class="service-item__pi">
-                <p class="service-item__desc text-body-lg">Поставим имплант на&nbsp;месте удалённого зуба. Соседние зубы останутся целыми&nbsp;— их не&nbsp;нужно обтачивать под&nbsp;мост.</p>
-                <button class="btn btn--primary btn--lg text-button-lg service-item__btn" data-open-modal>Записаться на&nbsp;бесплатный прием</button>
-              </div></div>
+        <div class="accordion__item service-item reveal is-open">
+          <div class="service-item__header">
+            <div class="service-item__photo"><img src="assets/service-1.png" alt="Имплантация одного зуба" loading="lazy"></div>
+            <div class="service-item__content">
+              <button class="accordion__head service-item__head" aria-expanded="true"><span class="acc__title service-item__title text-h3">Имплантация одного или&nbsp;нескольких зубов</span></button>
+              <div class="service-item__tags">
+                <span class="chip text-label-lg">От&nbsp;16&nbsp;000&nbsp;₽</span>
+                <span class="chip text-label-lg">Рассрочка 0%</span>
+                <span class="chip text-label-lg">Гарантия на&nbsp;работу</span>
+              </div>
             </div>
-            <div class="service-item__tags">
-              <span class="chip text-label-lg">От&nbsp;16&nbsp;000&nbsp;₽</span>
-              <span class="chip text-label-lg">Рассрочка 0%</span>
-              <span class="chip text-label-lg">Гарантия на&nbsp;работу</span>
+            <button class="icon-toggle" aria-label="Развернуть услугу"></button>
+          </div>
+          <div class="accordion__panel">
+            <div class="service-item__body">
+              <p class="service-item__desc text-body-lg">Поставим имплант на&nbsp;месте удалённого зуба. Соседние зубы останутся целыми&nbsp;— их не&nbsp;нужно обтачивать под&nbsp;мост.</p>
+              <button class="btn btn--primary btn--lg text-button-lg service-item__btn" data-open-modal>Записаться на&nbsp;бесплатный прием</button>
             </div>
-            <button class="icon-toggle" aria-label="Развернуть"></button>
           </div>
         </div>
         <div class="accordion__item service-item reveal">
-          <div class="service-item__row">
-            <span class="acc__num text-body-lg">02</span>
-            <div class="service-item__main">
-              <button class="accordion__head" aria-expanded="false"><span class="acc__title service-item__title text-h3">Полное восстановление зубов</span></button>
-              <div class="accordion__panel"><div class="service-item__pi">
-                <p class="service-item__desc text-body-lg">Вернём зубы на&nbsp;челюсти, даже если своих не&nbsp;осталось. Несъёмный протез ставим в&nbsp;день операции&nbsp;— домой вы уходите с&nbsp;зубами.</p>
-                <button class="btn btn--primary btn--lg text-button-lg service-item__btn" data-open-modal>Записаться на&nbsp;бесплатный прием</button>
-              </div></div>
+          <div class="service-item__header">
+            <div class="service-item__photo"><img src="assets/service-2.png" alt="Полное восстановление зубов" loading="lazy"></div>
+            <div class="service-item__content">
+              <button class="accordion__head service-item__head" aria-expanded="false"><span class="acc__title service-item__title text-h3">Полное восстановление зубов</span></button>
+              <div class="service-item__tags">
+                <span class="chip text-label-lg">Цена от&nbsp;149&nbsp;900&nbsp;₽</span>
+                <span class="chip text-label-lg">Новые зубы за&nbsp;1&nbsp;день</span>
+                <span class="chip text-label-lg">Без&nbsp;долгой костной пластики</span>
+              </div>
             </div>
-            <div class="service-item__tags">
-              <span class="chip text-label-lg">Цена от&nbsp;149&nbsp;900&nbsp;₽</span>
-              <span class="chip text-label-lg">Новые зубы за&nbsp;1&nbsp;день</span>
-              <span class="chip text-label-lg">Без&nbsp;долгой костной пластики</span>
+            <button class="icon-toggle" aria-label="Развернуть услугу"></button>
+          </div>
+          <div class="accordion__panel">
+            <div class="service-item__body">
+              <p class="service-item__desc text-body-lg">Вернём зубы на&nbsp;челюсти, даже если своих не&nbsp;осталось. Несъёмный протез ставим в&nbsp;день операции&nbsp;— домой вы уходите с&nbsp;зубами.</p>
+              <button class="btn btn--primary btn--lg text-button-lg service-item__btn" data-open-modal>Записаться на&nbsp;бесплатный прием</button>
             </div>
-            <button class="icon-toggle" aria-label="Развернуть"></button>
           </div>
         </div>
         <div class="accordion__item service-item reveal">
-          <div class="service-item__row">
-            <span class="acc__num text-body-lg">03</span>
-            <div class="service-item__main">
-              <button class="accordion__head" aria-expanded="false"><span class="acc__title service-item__title text-h3">Протезирование на&nbsp;имплантах</span></button>
-              <div class="accordion__panel"><div class="service-item__pi">
-                <p class="service-item__desc text-body-lg">Изготовим коронку, мост или&nbsp;полный протез в&nbsp;собственной лаборатории. Подберём цвет и&nbsp;форму под&nbsp;лицо, чтобы зубы выглядели естественно.</p>
-                <button class="btn btn--primary btn--lg text-button-lg service-item__btn" data-open-modal>Записаться на&nbsp;бесплатный прием</button>
-              </div></div>
+          <div class="service-item__header">
+            <div class="service-item__photo"><img src="assets/service-3.png" alt="Протезирование на имплантах" loading="lazy"></div>
+            <div class="service-item__content">
+              <button class="accordion__head service-item__head" aria-expanded="false"><span class="acc__title service-item__title text-h3">Протезирование на&nbsp;имплантах</span></button>
+              <div class="service-item__tags">
+                <span class="chip text-label-lg">Цена от&nbsp;24&nbsp;900&nbsp;₽</span>
+                <span class="chip text-label-lg">Своя лаборатория</span>
+                <span class="chip text-label-lg">Срок от&nbsp;1&nbsp;дня</span>
+              </div>
             </div>
-            <div class="service-item__tags">
-              <span class="chip text-label-lg">Цена от&nbsp;24&nbsp;900&nbsp;₽</span>
-              <span class="chip text-label-lg">Своя лаборатория</span>
-              <span class="chip text-label-lg">Срок от&nbsp;1&nbsp;дня</span>
+            <button class="icon-toggle" aria-label="Развернуть услугу"></button>
+          </div>
+          <div class="accordion__panel">
+            <div class="service-item__body">
+              <p class="service-item__desc text-body-lg">Изготовим коронку, мост или&nbsp;полный протез в&nbsp;собственной лаборатории. Подберём цвет и&nbsp;форму под&nbsp;лицо, чтобы зубы выглядели естественно.</p>
+              <button class="btn btn--primary btn--lg text-button-lg service-item__btn" data-open-modal>Записаться на&nbsp;бесплатный прием</button>
             </div>
-            <button class="icon-toggle" aria-label="Развернуть"></button>
           </div>
         </div>
         <div class="accordion__item service-item reveal">
-          <div class="service-item__row">
-            <span class="acc__num text-body-lg">04</span>
-            <div class="service-item__main">
-              <button class="accordion__head" aria-expanded="false"><span class="acc__title service-item__title text-h3">Имплантация без&nbsp;боли</span></button>
-              <div class="accordion__panel"><div class="service-item__pi">
-                <p class="service-item__desc text-body-lg">Операцию проводим под&nbsp;местной анестезией, в&nbsp;седации или&nbsp;в&nbsp;медикаментозном сне. Боли вы не&nbsp;почувствуете, саму процедуру не&nbsp;запомните.</p>
-                <button class="btn btn--primary btn--lg text-button-lg service-item__btn" data-open-modal>Записаться на&nbsp;бесплатный прием</button>
-              </div></div>
+          <div class="service-item__header">
+            <div class="service-item__photo"><img src="assets/service-4.png" alt="Имплантация без боли" loading="lazy"></div>
+            <div class="service-item__content">
+              <button class="accordion__head service-item__head" aria-expanded="false"><span class="acc__title service-item__title text-h3">Имплантация без&nbsp;боли</span></button>
+              <div class="service-item__tags">
+                <span class="chip text-label-lg">Седация</span>
+                <span class="chip text-label-lg">Лечение во&nbsp;сне</span>
+                <span class="chip text-label-lg">Подходит при&nbsp;страхе стоматолога</span>
+              </div>
             </div>
-            <div class="service-item__tags">
-              <span class="chip text-label-lg">Седация</span>
-              <span class="chip text-label-lg">Лечение во&nbsp;сне</span>
-              <span class="chip text-label-lg">Подходит при&nbsp;страхе стоматолога</span>
+            <button class="icon-toggle" aria-label="Развернуть услугу"></button>
+          </div>
+          <div class="accordion__panel">
+            <div class="service-item__body">
+              <p class="service-item__desc text-body-lg">Операцию проводим под&nbsp;местной анестезией, в&nbsp;седации или&nbsp;в&nbsp;медикаментозном сне. Боли вы не&nbsp;почувствуете, саму процедуру не&nbsp;запомните.</p>
+              <button class="btn btn--primary btn--lg text-button-lg service-item__btn" data-open-modal>Записаться на&nbsp;бесплатный прием</button>
             </div>
-            <button class="icon-toggle" aria-label="Развернуть"></button>
           </div>
         </div>
       </div>
@@ -648,8 +656,8 @@
         <div class="reviews__more">
           <p class="text-body-lg">Оставьте ваш отзыв или посмотрите 500+ отзывов других людей</p>
           <div class="reviews__badges">
-            <a class="reviews__badge" href="#" target="_blank" rel="noopener"><img src="assets/yamap-badge.png" alt="Яндекс Карты" loading="lazy"></a>
-            <a class="reviews__badge" href="#" target="_blank" rel="noopener"><img src="assets/2gis-badge.png" alt="2ГИС" loading="lazy"></a>
+            <a class="reviews__badge" href="#" target="_blank" rel="noopener"><span class="reviews__logo reviews__logo--yamap"><img src="assets/yamap-badge.png" alt="Яндекс Карты" loading="lazy"></span></a>
+            <a class="reviews__badge" href="#" target="_blank" rel="noopener"><span class="reviews__logo reviews__logo--2gis"><img src="assets/2gis-badge.png" alt="2ГИС" loading="lazy"></span></a>
           </div>
         </div>
       </div>

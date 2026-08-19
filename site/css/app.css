@@ -215,8 +215,11 @@ html.js .reveal.is-visible { opacity: 1; transform: none; }
 /* ---------- АККОРДЕОН (Услуги, FAQ) — с наложением карточек ---------- */
 .accordion { display: flex; flex-direction: column; }
 .accordion__item { position: relative; border: 1px solid var(--color-border-default); border-radius: var(--radius-2xl); background: var(--color-surface-default); margin-bottom: -26px; transition: background .25s; }
+/* услуги кладутся внахлёст сильнее прочих аккордеонов */
+.services-list .accordion__item { margin-bottom: -66px; }
 .accordion__item:last-child { margin-bottom: 0; }
 .accordion__item.is-open { background: var(--color-surface-sunken); }
+.services-list .accordion__item.is-open { background: var(--color-bg-muted); }
 .accordion__item:nth-child(1) { z-index: 1; }
 .accordion__item:nth-child(2) { z-index: 2; }
 .accordion__item:nth-child(3) { z-index: 3; }
@@ -235,15 +238,20 @@ html.js .reveal.is-visible { opacity: 1; transform: none; }
 .faq-item__a { padding: 0 var(--space-xl) calc(var(--space-xl) + 26px) calc(var(--space-xl) + 24px + var(--space-2xl)); }
 .faq-item__a p { color: var(--color-text-secondary); max-width: 62em; }
 /* Услуги — ряд: номер | контент | чипы | кнопка-тоггл (как в макете, без наложения текста) */
-.service-item__row { display: flex; align-items: flex-start; gap: var(--space-2xl); padding: var(--space-xl) var(--space-xl) calc(var(--space-xl) + 26px); }
-.service-item .acc__num { flex: 0 0 auto; padding-top: 6px; }
-.service-item__main { flex: 1 1 auto; min-width: 0; }
+/* Карточка услуги. Нижний паддинг увеличен (96) — именно его перекрывает
+   следующая карточка, наезжающая на 66px; у последней он обычный. */
+.service-item { padding: var(--space-xl) var(--space-xl) 96px; }
+.services-list .accordion__item:last-child { padding-bottom: var(--space-xl); }
+.service-item__header { display: flex; align-items: center; gap: var(--space-xl); }
+.service-item__photo { flex: 0 0 104px; width: 104px; height: 104px; border-radius: var(--radius-md); overflow: hidden; }
+.service-item__photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.service-item__content { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: var(--space-md); }
 .service-item .accordion__head { display: block; width: 100%; text-align: left; background: transparent; border: none; padding: 0; cursor: pointer; }
-.service-item__pi { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-lg); padding-top: var(--space-lg); }
+.service-item__tags { display: flex; flex-wrap: wrap; gap: var(--space-2xs); }
+/* тело раскрытой карточки выровнено по колонке заголовка (фото 104 + отступ 32) */
+.service-item__body { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-lg); padding: var(--space-xl) 136px 0; }
 .service-item__desc { color: var(--color-text-secondary); }
-.service-item__tags { flex: 0 0 auto; display: none; flex-direction: column; align-items: flex-start; gap: var(--space-2xs); }
-.service-item.is-open .service-item__tags { display: flex; }
-/* индикатор +/- (как IconButton neutral) */
+
 .icon-toggle { position: relative; width: 44px; height: 44px; border-radius: var(--radius-md); background: var(--color-action-neutral); flex: 0 0 auto; border: none; padding: 0; cursor: pointer; appearance: none; -webkit-appearance: none; }
 .icon-toggle::before, .icon-toggle::after { content: ""; position: absolute; left: 50%; top: 50%; background: var(--color-text-on-neutral); border-radius: 2px; transition: transform .25s var(--motion-easing-standard), opacity .2s; }
 .icon-toggle::before { width: 16px; height: 2px; transform: translate(-50%, -50%); }
@@ -537,7 +545,16 @@ html.js .reveal.is-visible { opacity: 1; transform: none; }
    лежащая ниже по z-index, приподнималась бы под соседкой */
 .reviews__badge:hover { background: var(--color-bg-subtle); transform: translateY(-4px); z-index: 3; }
 @media (prefers-reduced-motion: reduce) { .reviews__badge { transition: background .15s; } .reviews__badge:hover { transform: none; } }
-.reviews__badge img { height: 40px; width: auto; display: block; }
+/* Логотипы лежат в файлах с широкими прозрачными полями, а в макете заливка кадрирована
+   (imageTransform). Повторяем то же кадрирование обёрткой с обрезкой: так сохраняется
+   альфа-канал исходника и одновременно размер логотипа из макета. Значения — пересчёт
+   матрицы Figma: видимая область 2345×430 от (224,161) и 3975×1445 от (−37,−181). */
+.reviews__logo { position: relative; display: block; overflow: hidden; flex: 0 0 auto; }
+.reviews__logo img { position: absolute; display: block; max-width: none; height: auto; }
+.reviews__logo--yamap { width: 218px; height: 40px; }
+.reviews__logo--yamap img { width: 259.5px; left: -20.8px; top: -15px; }
+.reviews__logo--2gis { width: 110px; height: 40px; }
+.reviews__logo--2gis img { width: 106.3px; left: 1px; top: 5px; }
 
 /* ---------- CTA (тёмная широкая карточка) ---------- */
 .cta { background: var(--color-bg-inverse); border-radius: var(--radius-2xl); color: var(--color-text-inverse); padding: clamp(32px, 5vw, 72px) 24px; }
@@ -664,11 +681,11 @@ html.js .reveal.is-visible { opacity: 1; transform: none; }
   .restoration__options { grid-template-columns: 1fr; }
   .restoration__detail { grid-template-columns: 1fr; }
   .faq-item .accordion__head { gap: var(--space-md); }
-  .service-item__row { flex-wrap: wrap; column-gap: var(--space-lg); padding: var(--space-lg) var(--space-lg) calc(var(--space-lg) + 26px); }
-  .service-item .acc__num { order: 1; }
-  .service-item__main { order: 2; }
-  .service-item .icon-toggle { order: 3; }
-  .service-item__tags { order: 4; flex-basis: 100%; }
+  .service-item { padding: var(--space-lg) var(--space-lg) 82px; }
+  .services-list .accordion__item { margin-bottom: -52px; }
+  .service-item__header { gap: var(--space-md); }
+  .service-item__photo { flex-basis: 72px; width: 72px; height: 72px; }
+  .service-item__body { padding: var(--space-lg) 0 0; }
   .faq-item__a { padding: 0 var(--space-xl) calc(var(--space-xl) + 26px); }
   .cta__row { grid-template-columns: 1fr; }
   .contacts { min-height: 0; display: flex; flex-direction: column-reverse; }
