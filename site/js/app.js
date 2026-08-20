@@ -429,6 +429,39 @@
     update();
   }
 
+  /* ---------- Просмотр сертификата ----------
+     Ссылка «Сертификаты» ведёт не на страницу, а открывает просмотрщик.
+     Пока вместо файла показываем пустой лист А4 на затемнённом фоне. */
+  function initCertViewer() {
+    const m = document.querySelector('#certModal');
+    if (!m) return;
+    let opener = null;
+    const onKey = e => { if (e.key === 'Escape') close(); };
+    function open(btn) {
+      opener = btn;
+      m.classList.add('is-open');
+      m.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('nav-locked');
+      document.addEventListener('keydown', onKey);
+      const c = m.querySelector('[data-cert-close]');
+      setTimeout(() => c && c.focus(), 60);
+    }
+    function close() {
+      m.classList.remove('is-open');
+      m.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('nav-locked');
+      document.removeEventListener('keydown', onKey);
+      if (opener) { try { opener.focus(); } catch (e) {} opener = null; }
+    }
+    document.querySelectorAll('[data-cert-open]').forEach(b =>
+      b.addEventListener('click', () => open(b)));
+    m.querySelectorAll('[data-cert-close]').forEach(b => b.addEventListener('click', close));
+    // клик мимо листа закрывает
+    m.addEventListener('click', e => {
+      if (e.target === m || e.target.classList.contains('modal__scrim')) close();
+    });
+  }
+
   /* ---------- Варианты блока услуг ----------
      Слоты лежат в разметке рядом; показываем нужный и помечаем секцию атрибутом,
      чтобы к варианту можно было цепляться из CSS. */
@@ -521,6 +554,7 @@
     initCarousel();
     initReviews();
     initReviewsMarquee();
+    initCertViewer();
     initHeroCountdown();
     initReveal();
     initDots();

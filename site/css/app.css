@@ -483,11 +483,25 @@ html.js .reveal.is-visible { opacity: 1; transform: none; }
 .doc-card2__photo { flex: 1 1 0; padding: var(--space-md); }
 .doc-card2__photo .media-img { border-radius: var(--radius-sm); object-position: center 20%; }
 .doc-card2__body { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: var(--space-lg); padding: var(--space-lg) var(--space-lg) var(--space-lg) var(--space-xs); }
-.doc-card2__body > p:first-child { color: var(--color-text-primary); }
+.doc-card2__head { display: flex; flex-direction: column; gap: var(--space-xs); }
+.doc-card2__name { color: var(--color-text-primary); }
 .doc-card2__tags { display: flex; flex-wrap: wrap; gap: var(--space-2xs); }
-.doc-card2__stats { display: flex; flex-direction: column; gap: var(--space-xs); }
-.doc-card2__stats p:nth-child(odd) { color: var(--color-text-secondary); }
-.doc-card2__cert { color: var(--color-text-accent); text-decoration: underline; text-underline-offset: 2px; }
+/* блок со ссылкой и статистикой прижат к низу карточки */
+.doc-card2__details { margin-top: auto; display: flex; flex-direction: column; gap: var(--space-md); }
+/* статистика лежит в отдельной плашке, у каждого показателя три строки: подпись, число, единица */
+.doc-card2__stats { display: flex; gap: var(--space-lg); padding: var(--space-md) var(--space-lg); border-radius: var(--radius-sm); background: var(--color-bg-muted); }
+.doc-card2__stat { display: flex; flex-direction: column; gap: var(--space-3xs); }
+.doc-card2__stat-label { color: var(--color-text-secondary); }
+.doc-card2__stat-value { color: var(--color-text-primary); white-space: nowrap; }
+.doc-card2__stat-unit { color: var(--color-text-secondary); }
+/* Псевдо-ссылка: никуда не ведёт, открывает просмотр сертификата.
+   Пунктирное подчёркивание задано в макете (textDecorationStyle: DOTTED);
+   отступ 12% и толщина 6% там же — обе доли считаются от кегля. */
+.doc-card2__cert { appearance: none; background: none; border: none; padding: 0; font: inherit; cursor: pointer;
+  color: var(--color-text-accent); text-decoration: underline dotted;
+  text-underline-offset: 12%; text-decoration-thickness: 6%; text-decoration-skip-ink: auto; }
+.doc-card2__cert:hover { text-decoration-color: currentColor; opacity: .8; }
+.doc-card2__cert svg { flex: 0 0 auto; }
 .chip--sm { padding: 6px 12px; font-size: 12px; line-height: 16px; }
 @media (max-width: 860px) {
   .doc-grid { grid-template-columns: 1fr; }
@@ -782,4 +796,15 @@ html.js .reveal.is-visible { opacity: 1; transform: none; }
   .services-row { flex-wrap: wrap; }
   .services-row > .service-card { flex-basis: 100%; }
   .services-note { flex-direction: column; align-items: flex-start; gap: var(--space-lg); padding: var(--space-lg); }
+}
+
+
+/* ---------- Просмотр сертификата (заглушка: пустой лист А4) ---------- */
+.cert-modal__body { position: relative; display: flex; align-items: center; justify-content: center; }
+/* ширину ведём от меньшего из двух ограничений, чтобы лист влезал и по высоте, и по ширине */
+.cert-modal__sheet { width: min(calc(100vw - 2 * var(--space-2xl)), calc(84vh * 210 / 297)); aspect-ratio: 210 / 297; background: var(--color-surface-default); border-radius: var(--radius-sm); box-shadow: var(--shadow-xl); animation: card-in .3s var(--motion-easing-spring); }
+.cert-modal__close { position: absolute; top: calc(var(--space-lg) * -1); right: calc(var(--space-lg) * -1); width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; background: transparent; border: none; border-radius: var(--radius-md); color: var(--color-text-inverse); cursor: pointer; }
+.cert-modal__close:hover { background: rgba(255,255,255,.14); }
+@media (max-width: 600px) {
+  .cert-modal__close { top: calc(var(--space-xl) * -1); right: 0; }
 }
