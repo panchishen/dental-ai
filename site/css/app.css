@@ -497,7 +497,7 @@ html.js .reveal.is-visible { opacity: 1; transform: none; }
 /* Псевдо-ссылка: никуда не ведёт, открывает просмотр сертификата.
    Пунктирное подчёркивание задано в макете (textDecorationStyle: DOTTED);
    отступ 12% и толщина 6% там же — обе доли считаются от кегля. */
-.doc-card2__cert { appearance: none; background: none; border: none; padding: 0; font: inherit; cursor: pointer;
+.doc-card2__cert { appearance: none; background: none; border: none; padding: 0; font-family: inherit; line-height: inherit; cursor: pointer;
   color: var(--color-text-accent); text-decoration: underline dotted;
   text-underline-offset: 12%; text-decoration-thickness: 6%; text-decoration-skip-ink: auto; }
 .doc-card2__cert:hover { text-decoration-color: currentColor; opacity: .8; }
@@ -808,3 +808,32 @@ html.js .reveal.is-visible { opacity: 1; transform: none; }
 @media (max-width: 600px) {
   .cert-modal__close { top: calc(var(--space-xl) * -1); right: 0; }
 }
+
+/* ---------- Подвал, вариант 1 (компактный) ---------- */
+.footer__card--compact { padding: var(--space-xl) var(--space-3xl); }
+/* в новом подвале шаг задаёт контейнер (24), у разделителя своих отступов нет —
+   в старом варианте они были по 32 и добавляли лишнюю высоту */
+.footer__card--compact > .inner { display: flex; flex-direction: column; gap: var(--space-lg); }
+.footer__card--compact .footer__divider { margin: 0; }
+.footer-c__top { display: flex; align-items: flex-start; gap: var(--space-3xl); }
+.footer-c__brand { flex: 0 0 auto; display: flex; flex-direction: column; gap: 14px; max-width: 320px; }
+/* колонка контактов занимает оставшееся место, отбита сверху на 8 по макету */
+.footer-c__contacts { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: var(--space-md); padding-top: var(--space-xs); }
+.footer-c__contacts-title { color: var(--color-text-inverse); }
+.footer-c__contacts-list { display: flex; gap: var(--space-xl); }
+.footer-c__col { display: flex; flex-direction: column; gap: var(--space-xs); }
+.footer-c__col span, .footer-c__col a { color: rgba(255,255,255,.7); transition: color .15s; }
+.footer-c__col a:hover { color: #fff; }
+.footer-c__top .footer__social { flex: 0 0 auto; }
+
+@media (max-width: 1024px) {
+  .footer__card--compact { padding: var(--space-xl) var(--space-lg); }
+  .footer-c__top { flex-direction: column; gap: var(--space-xl); }
+  .footer-c__contacts { padding-top: 0; }
+}
+@media (max-width: 600px) {
+  .footer-c__contacts-list { flex-direction: column; gap: var(--space-xs); }
+}
+
+/* кнопка маршрута под картой — по центру, отступ как между заголовком и картой */
+.contacts__actions { display: flex; justify-content: center; margin-top: var(--space-2xl); }

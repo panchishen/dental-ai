@@ -474,6 +474,18 @@
     sec.setAttribute('data-services-variant', String(v));
   }
 
+  /* ---------- Варианты подвала ----------
+     Устроено так же, как варианты блока услуг: оба слота лежат рядом,
+     показываем нужный и помечаем сам footer атрибутом. */
+  function setFooterVariant(v) {
+    const f = document.querySelector('.footer');
+    if (!f) return;
+    f.querySelectorAll('.footer-slot').forEach(slot => {
+      slot.hidden = slot.dataset.footerSlot !== String(v);
+    });
+    f.setAttribute('data-footer-variant', String(v));
+  }
+
   /* ---------- Панель настроек (конфигуратор темы и Hero) ---------- */
   function initConfig() {
     const cfg = $('#cfg');
@@ -495,6 +507,7 @@
         if (btn.dataset.variant) setHeroVariant(btn.dataset.variant);
         if (btn.dataset.themeSet) applyTheme(btn.dataset.themeSet);
         if (btn.dataset.servicesVariant) setServicesVariant(btn.dataset.servicesVariant);
+        if (btn.dataset.footerVariant) setFooterVariant(btn.dataset.footerVariant);
       }));
     });
 
