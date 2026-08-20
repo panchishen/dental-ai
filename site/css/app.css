@@ -369,7 +369,9 @@ html.js .reveal.is-visible { opacity: 1; transform: none; }
 }
 
 /* ---------- ГАРАНТИИ ---------- */
-.guarantee { display: flex; align-items: stretch; gap: var(--space-lg); }
+/* колонки выровнены по центру: текстовый блок ниже карточки с договором и в макете
+   центрируется относительно неё, а не растягивается на её высоту */
+.guarantee { display: flex; align-items: center; gap: var(--space-lg); }
 .guarantee__content { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: var(--space-xl); padding: var(--space-md); }
 .guarantee__heading { text-align: center; display: flex; flex-direction: column; gap: var(--space-md); }
 .guarantee__heading .section-title { margin-bottom: 0; }
@@ -750,4 +752,34 @@ html.js .reveal.is-visible { opacity: 1; transform: none; }
 
 @media (max-width: 480px) {
   .cfg__panel { width: calc(100vw - 32px); }
+}
+
+/* ---------- Услуги, вариант 2: сетка карточек ---------- */
+.services-grid { display: flex; flex-direction: column; gap: var(--space-lg); }
+.services-row { display: flex; gap: var(--space-lg); align-items: stretch; }
+.services-row > .service-card { flex: 1 1 0; min-width: 0; }
+.service-card { display: flex; flex-direction: column; gap: var(--space-md); padding: var(--space-lg); border-radius: var(--radius-xl); background: var(--color-bg-muted); }
+.service-card__title { color: var(--color-text-primary); }
+.service-card__body { display: flex; gap: var(--space-md); }
+/* фото фиксированное 255×255, чип прижат к верхнему правому углу с отступом 8 */
+.service-card__media { position: relative; flex: 0 0 255px; width: 255px; height: 255px; border-radius: var(--radius-sm); overflow: hidden; background: var(--color-surface-default); }
+.service-card__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.service-card__chip { position: absolute; top: 8px; right: 8px; display: inline-flex; align-items: center; padding: 12px 22px; border-radius: var(--radius-full); background: var(--color-bg-accent-subtle); color: var(--color-text-accent-strong); }
+.service-card__details { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: var(--space-md); }
+.service-card__detail { flex: 1 1 0; display: flex; flex-direction: column; justify-content: center; gap: var(--space-xs); padding: var(--space-lg); border-radius: var(--radius-sm); background: var(--color-surface-default); }
+.service-card__label { color: var(--color-text-secondary); }
+.service-card__value { color: var(--color-text-primary); }
+.service-card__price { display: flex; flex-direction: column; }
+.service-card__old { color: var(--color-text-disabled); text-decoration: line-through; }
+.services-note { display: flex; align-items: center; gap: var(--space-2xl); padding: var(--space-lg) var(--space-lg) var(--space-lg) var(--space-xl); border-radius: var(--radius-xl); background: var(--color-bg-accent-subtle); }
+.services-note__text { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; }
+.services-note__title { color: var(--color-text-primary); }
+.services-note__sub { color: var(--color-text-secondary); }
+
+@media (max-width: 1024px) {
+  .service-card__body { flex-direction: column; }
+  .service-card__media { flex-basis: auto; width: 100%; height: auto; aspect-ratio: 1 / 1; }
+  .services-row { flex-wrap: wrap; }
+  .services-row > .service-card { flex-basis: 100%; }
+  .services-note { flex-direction: column; align-items: flex-start; gap: var(--space-lg); padding: var(--space-lg); }
 }

@@ -429,6 +429,18 @@
     update();
   }
 
+  /* ---------- Варианты блока услуг ----------
+     Слоты лежат в разметке рядом; показываем нужный и помечаем секцию атрибутом,
+     чтобы к варианту можно было цепляться из CSS. */
+  function setServicesVariant(v) {
+    const sec = $('#services');
+    if (!sec) return;
+    $$('.services-slot', sec).forEach(slot => {
+      slot.hidden = slot.dataset.servicesSlot !== String(v);
+    });
+    sec.setAttribute('data-services-variant', String(v));
+  }
+
   /* ---------- Панель настроек (конфигуратор темы и Hero) ---------- */
   function initConfig() {
     const cfg = $('#cfg');
@@ -449,6 +461,7 @@
         btn.setAttribute('aria-pressed', 'true');
         if (btn.dataset.variant) setHeroVariant(btn.dataset.variant);
         if (btn.dataset.themeSet) applyTheme(btn.dataset.themeSet);
+        if (btn.dataset.servicesVariant) setServicesVariant(btn.dataset.servicesVariant);
       }));
     });
 

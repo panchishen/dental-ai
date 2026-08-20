@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
   <script>document.documentElement.classList.add('js')</script>
   <title>Кристалис&nbsp;— стоматология и&nbsp;имплантация в&nbsp;Москве</title>
   <meta name="description" content="Имплантация зубов под ключ. Лечим без боли, гарантию закрепляем письменно.">
@@ -52,7 +54,7 @@
 
       <hr class="cfg__divider">
 
-      <h2 class="cfg__title text-h5">Настройки Hero-блока</h2>
+      <h2 class="cfg__title text-h5">Hero-блок</h2>
 
       <div class="cfg__group">
         <span class="cfg__label text-label-md">Вариант</span>
@@ -90,6 +92,17 @@
         <span class="cfg__label text-label-md">Статистика на фото</span>
         <div class="cfg__opts">
           <label class="cfg__opt"><input type="checkbox" class="cfg__check" name="cfg-photo-stats" checked><span class="text-body-md">Вкл</span></label>
+        </div>
+      </div>
+
+      <hr class="cfg__divider">
+
+      <h2 class="cfg__title text-h5">Блок услуг</h2>
+      <div class="cfg__group">
+        <span class="cfg__label text-label-md">Вариант</span>
+        <div class="cfg__seg cfg__seg--sm" role="group" aria-label="Вариант блока услуг">
+          <button type="button" class="cfg__seg-btn text-button-sm is-active" data-services-variant="1" aria-pressed="true">1</button>
+          <button type="button" class="cfg__seg-btn text-button-sm" data-services-variant="2" aria-pressed="false">2</button>
         </div>
       </div>
     </aside>
@@ -257,88 +270,222 @@
     </section>
 
     <!-- УСЛУГИ (аккордеон, карточки внахлёст) -->
-    <section class="band" id="services">
+    <section class="band" id="services" data-services-variant="1">
       <h2 class="section-title text-h1 reveal"><span class="accent">Услуги</span> клиники</h2>
-      <div class="accordion services-list" data-single="true" data-stagger="60">
-        <div class="accordion__item service-item reveal is-open">
-          <div class="service-item__header">
-            <div class="service-item__photo"><img src="assets/service-1.png" alt="Имплантация одного зуба" loading="lazy"></div>
-            <div class="service-item__content">
-              <button class="accordion__head service-item__head" aria-expanded="true"><span class="acc__title service-item__title text-h3">Имплантация одного или&nbsp;нескольких зубов</span></button>
-              <div class="service-item__tags">
-                <span class="chip text-label-lg">От&nbsp;16&nbsp;000&nbsp;₽</span>
-                <span class="chip text-label-lg">Рассрочка 0%</span>
-                <span class="chip text-label-lg">Гарантия на&nbsp;работу</span>
+      <div class="services-slot" data-services-slot="1">
+        <div class="accordion services-list" data-single="true" data-stagger="60">
+          <div class="accordion__item service-item reveal is-open">
+            <div class="service-item__header">
+              <div class="service-item__photo"><img src="assets/service-1.png" alt="Имплантация одного зуба" loading="lazy"></div>
+              <div class="service-item__content">
+                <button class="accordion__head service-item__head" aria-expanded="true"><span class="acc__title service-item__title text-h3">Имплантация одного или&nbsp;нескольких зубов</span></button>
+                <div class="service-item__tags">
+                  <span class="chip text-label-lg">От&nbsp;16&nbsp;000&nbsp;₽</span>
+                  <span class="chip text-label-lg">Рассрочка 0%</span>
+                  <span class="chip text-label-lg">Гарантия на&nbsp;работу</span>
+                </div>
+              </div>
+              <button class="icon-toggle" aria-label="Развернуть услугу"></button>
+            </div>
+            <div class="accordion__panel">
+              <div class="service-item__body">
+                <p class="service-item__desc text-body-lg">Поставим имплант на&nbsp;месте удалённого зуба. Соседние зубы останутся целыми&nbsp;— их не&nbsp;нужно обтачивать под&nbsp;мост.</p>
+                <button class="btn btn--primary btn--lg text-button-lg service-item__btn" data-open-modal>Записаться на&nbsp;бесплатный прием</button>
               </div>
             </div>
-            <button class="icon-toggle" aria-label="Развернуть услугу"></button>
           </div>
-          <div class="accordion__panel">
-            <div class="service-item__body">
-              <p class="service-item__desc text-body-lg">Поставим имплант на&nbsp;месте удалённого зуба. Соседние зубы останутся целыми&nbsp;— их не&nbsp;нужно обтачивать под&nbsp;мост.</p>
-              <button class="btn btn--primary btn--lg text-button-lg service-item__btn" data-open-modal>Записаться на&nbsp;бесплатный прием</button>
+          <div class="accordion__item service-item reveal">
+            <div class="service-item__header">
+              <div class="service-item__photo"><img src="assets/service-2.png" alt="Полное восстановление зубов" loading="lazy"></div>
+              <div class="service-item__content">
+                <button class="accordion__head service-item__head" aria-expanded="false"><span class="acc__title service-item__title text-h3">Полное восстановление зубов</span></button>
+                <div class="service-item__tags">
+                  <span class="chip text-label-lg">Цена от&nbsp;149&nbsp;900&nbsp;₽</span>
+                  <span class="chip text-label-lg">Новые зубы за&nbsp;1&nbsp;день</span>
+                  <span class="chip text-label-lg">Без&nbsp;долгой костной пластики</span>
+                </div>
+              </div>
+              <button class="icon-toggle" aria-label="Развернуть услугу"></button>
+            </div>
+            <div class="accordion__panel">
+              <div class="service-item__body">
+                <p class="service-item__desc text-body-lg">Вернём зубы на&nbsp;челюсти, даже если своих не&nbsp;осталось. Несъёмный протез ставим в&nbsp;день операции&nbsp;— домой вы уходите с&nbsp;зубами.</p>
+                <button class="btn btn--primary btn--lg text-button-lg service-item__btn" data-open-modal>Записаться на&nbsp;бесплатный прием</button>
+              </div>
+            </div>
+          </div>
+          <div class="accordion__item service-item reveal">
+            <div class="service-item__header">
+              <div class="service-item__photo"><img src="assets/service-3.png" alt="Протезирование на имплантах" loading="lazy"></div>
+              <div class="service-item__content">
+                <button class="accordion__head service-item__head" aria-expanded="false"><span class="acc__title service-item__title text-h3">Протезирование на&nbsp;имплантах</span></button>
+                <div class="service-item__tags">
+                  <span class="chip text-label-lg">Цена от&nbsp;24&nbsp;900&nbsp;₽</span>
+                  <span class="chip text-label-lg">Своя лаборатория</span>
+                  <span class="chip text-label-lg">Срок от&nbsp;1&nbsp;дня</span>
+                </div>
+              </div>
+              <button class="icon-toggle" aria-label="Развернуть услугу"></button>
+            </div>
+            <div class="accordion__panel">
+              <div class="service-item__body">
+                <p class="service-item__desc text-body-lg">Изготовим коронку, мост или&nbsp;полный протез в&nbsp;собственной лаборатории. Подберём цвет и&nbsp;форму под&nbsp;лицо, чтобы зубы выглядели естественно.</p>
+                <button class="btn btn--primary btn--lg text-button-lg service-item__btn" data-open-modal>Записаться на&nbsp;бесплатный прием</button>
+              </div>
+            </div>
+          </div>
+          <div class="accordion__item service-item reveal">
+            <div class="service-item__header">
+              <div class="service-item__photo"><img src="assets/service-4.png" alt="Имплантация без боли" loading="lazy"></div>
+              <div class="service-item__content">
+                <button class="accordion__head service-item__head" aria-expanded="false"><span class="acc__title service-item__title text-h3">Имплантация без&nbsp;боли</span></button>
+                <div class="service-item__tags">
+                  <span class="chip text-label-lg">Седация</span>
+                  <span class="chip text-label-lg">Лечение во&nbsp;сне</span>
+                  <span class="chip text-label-lg">Подходит при&nbsp;страхе стоматолога</span>
+                </div>
+              </div>
+              <button class="icon-toggle" aria-label="Развернуть услугу"></button>
+            </div>
+            <div class="accordion__panel">
+              <div class="service-item__body">
+                <p class="service-item__desc text-body-lg">Операцию проводим под&nbsp;местной анестезией, в&nbsp;седации или&nbsp;в&nbsp;медикаментозном сне. Боли вы не&nbsp;почувствуете, саму процедуру не&nbsp;запомните.</p>
+                <button class="btn btn--primary btn--lg text-button-lg service-item__btn" data-open-modal>Записаться на&nbsp;бесплатный прием</button>
+              </div>
             </div>
           </div>
         </div>
-        <div class="accordion__item service-item reveal">
-          <div class="service-item__header">
-            <div class="service-item__photo"><img src="assets/service-2.png" alt="Полное восстановление зубов" loading="lazy"></div>
-            <div class="service-item__content">
-              <button class="accordion__head service-item__head" aria-expanded="false"><span class="acc__title service-item__title text-h3">Полное восстановление зубов</span></button>
-              <div class="service-item__tags">
-                <span class="chip text-label-lg">Цена от&nbsp;149&nbsp;900&nbsp;₽</span>
-                <span class="chip text-label-lg">Новые зубы за&nbsp;1&nbsp;день</span>
-                <span class="chip text-label-lg">Без&nbsp;долгой костной пластики</span>
+      </div>
+      <div class="services-slot" data-services-slot="2" hidden>
+        <div class="services-grid">
+        <div class="services-row">
+          <article class="service-card service-card--wide reveal">
+            <h3 class="service-card__title text-h4">Имплантация одного или&nbsp;нескольких зубов</h3>
+            <div class="service-card__body">
+              <div class="service-card__media">
+                <img src="assets/service-1.png" alt="" loading="lazy">
+                <span class="service-card__chip text-label-lg">-10%</span>
+              </div>
+              <div class="service-card__details">
+              <div class="service-card__detail">
+                <span class="service-card__label text-label-lg">Цена</span>
+                <div class="service-card__price"><span class="service-card__value text-h4">от&nbsp;125&nbsp;000&nbsp;₽</span><span class="service-card__old text-label-lg">от&nbsp;137&nbsp;500&nbsp;₽</span></div>
+              </div>
+              <div class="service-card__detail">
+                <span class="service-card__label text-label-lg">Рассрочка</span>
+                <span class="service-card__value text-h4">0%</span>
+              </div>
               </div>
             </div>
-            <button class="icon-toggle" aria-label="Развернуть услугу"></button>
-          </div>
-          <div class="accordion__panel">
-            <div class="service-item__body">
-              <p class="service-item__desc text-body-lg">Вернём зубы на&nbsp;челюсти, даже если своих не&nbsp;осталось. Несъёмный протез ставим в&nbsp;день операции&nbsp;— домой вы уходите с&nbsp;зубами.</p>
-              <button class="btn btn--primary btn--lg text-button-lg service-item__btn" data-open-modal>Записаться на&nbsp;бесплатный прием</button>
+          </article>
+          <article class="service-card service-card--wide reveal">
+            <h3 class="service-card__title text-h4">Полное восстановление зубов</h3>
+            <div class="service-card__body">
+              <div class="service-card__media">
+                <img src="assets/service-2.png" alt="" loading="lazy">
+                <span class="service-card__chip text-label-lg">-10%</span>
+              </div>
+              <div class="service-card__details">
+              <div class="service-card__detail">
+                <span class="service-card__label text-label-lg">Цена</span>
+                <div class="service-card__price"><span class="service-card__value text-h4">от&nbsp;149&nbsp;900&nbsp;₽</span><span class="service-card__old text-label-lg">от&nbsp;164&nbsp;890&nbsp;₽</span></div>
+              </div>
+              <div class="service-card__detail">
+                <span class="service-card__label text-label-lg">Новые зубы</span>
+                <span class="service-card__value text-h4">за&nbsp;1&nbsp;день</span>
+              </div>
+              </div>
             </div>
-          </div>
+          </article>
         </div>
-        <div class="accordion__item service-item reveal">
-          <div class="service-item__header">
-            <div class="service-item__photo"><img src="assets/service-3.png" alt="Протезирование на имплантах" loading="lazy"></div>
-            <div class="service-item__content">
-              <button class="accordion__head service-item__head" aria-expanded="false"><span class="acc__title service-item__title text-h3">Протезирование на&nbsp;имплантах</span></button>
-              <div class="service-item__tags">
-                <span class="chip text-label-lg">Цена от&nbsp;24&nbsp;900&nbsp;₽</span>
-                <span class="chip text-label-lg">Своя лаборатория</span>
-                <span class="chip text-label-lg">Срок от&nbsp;1&nbsp;дня</span>
+        <div class="services-row">
+          <article class="service-card service-card--wide reveal">
+            <h3 class="service-card__title text-h4">Протезирование на&nbsp;имплантах</h3>
+            <div class="service-card__body">
+              <div class="service-card__media">
+                <img src="assets/service-3.png" alt="" loading="lazy">
+                <span class="service-card__chip text-label-lg">-15%</span>
+              </div>
+              <div class="service-card__details">
+              <div class="service-card__detail">
+                <span class="service-card__label text-label-lg">Скуловая имплантация</span>
+                <div class="service-card__price"><span class="service-card__value text-h4">от&nbsp;21&nbsp;165&nbsp;₽</span><span class="service-card__old text-label-lg">от&nbsp;24&nbsp;900&nbsp;₽</span></div>
+              </div>
+              <div class="service-card__detail">
+                <span class="service-card__label text-label-lg">Срок</span>
+                <span class="service-card__value text-h4">от&nbsp;1&nbsp;дня</span>
+              </div>
               </div>
             </div>
-            <button class="icon-toggle" aria-label="Развернуть услугу"></button>
-          </div>
-          <div class="accordion__panel">
-            <div class="service-item__body">
-              <p class="service-item__desc text-body-lg">Изготовим коронку, мост или&nbsp;полный протез в&nbsp;собственной лаборатории. Подберём цвет и&nbsp;форму под&nbsp;лицо, чтобы зубы выглядели естественно.</p>
-              <button class="btn btn--primary btn--lg text-button-lg service-item__btn" data-open-modal>Записаться на&nbsp;бесплатный прием</button>
+          </article>
+          <article class="service-card service-card--wide reveal">
+            <h3 class="service-card__title text-h4">Имплантация без&nbsp;боли</h3>
+            <div class="service-card__body">
+              <div class="service-card__media">
+                <img src="assets/service-4.png" alt="" loading="lazy">
+                <span class="service-card__chip text-label-lg">-20%</span>
+              </div>
+              <div class="service-card__details">
+              <div class="service-card__detail">
+                <span class="service-card__label text-label-lg">Цена</span>
+                <div class="service-card__price"><span class="service-card__value text-h4">от&nbsp;9&nbsp;600&nbsp;₽</span><span class="service-card__old text-label-lg">от&nbsp;12&nbsp;000&nbsp;₽</span></div>
+              </div>
+              <div class="service-card__detail">
+                <span class="service-card__label text-label-lg">Лечение во&nbsp;сне</span>
+                <span class="service-card__value text-h4">Седация</span>
+              </div>
+              </div>
             </div>
-          </div>
+          </article>
         </div>
-        <div class="accordion__item service-item reveal">
-          <div class="service-item__header">
-            <div class="service-item__photo"><img src="assets/service-4.png" alt="Имплантация без боли" loading="lazy"></div>
-            <div class="service-item__content">
-              <button class="accordion__head service-item__head" aria-expanded="false"><span class="acc__title service-item__title text-h3">Имплантация без&nbsp;боли</span></button>
-              <div class="service-item__tags">
-                <span class="chip text-label-lg">Седация</span>
-                <span class="chip text-label-lg">Лечение во&nbsp;сне</span>
-                <span class="chip text-label-lg">Подходит при&nbsp;страхе стоматолога</span>
+        <div class="services-row services-row--thirds">
+          <article class="service-card reveal">
+            <h3 class="service-card__title text-h4">Эстетика</h3>
+            <div class="service-card__details">
+              <div class="service-card__detail">
+                <span class="service-card__label text-label-lg">Виниры</span>
+                <span class="service-card__value text-h4">от&nbsp;18&nbsp;900&nbsp;₽</span>
+              </div>
+              <div class="service-card__detail">
+                <span class="service-card__label text-label-lg">Отбеливание</span>
+                <span class="service-card__value text-h4">от&nbsp;12&nbsp;000&nbsp;₽</span>
               </div>
             </div>
-            <button class="icon-toggle" aria-label="Развернуть услугу"></button>
-          </div>
-          <div class="accordion__panel">
-            <div class="service-item__body">
-              <p class="service-item__desc text-body-lg">Операцию проводим под&nbsp;местной анестезией, в&nbsp;седации или&nbsp;в&nbsp;медикаментозном сне. Боли вы не&nbsp;почувствуете, саму процедуру не&nbsp;запомните.</p>
-              <button class="btn btn--primary btn--lg text-button-lg service-item__btn" data-open-modal>Записаться на&nbsp;бесплатный прием</button>
+          </article>
+          <article class="service-card reveal">
+            <h3 class="service-card__title text-h4">Лечение зубов</h3>
+            <div class="service-card__details">
+              <div class="service-card__detail">
+                <span class="service-card__label text-label-lg">Кариес</span>
+                <span class="service-card__value text-h4">от&nbsp;3&nbsp;500&nbsp;₽</span>
+              </div>
+              <div class="service-card__detail">
+                <span class="service-card__label text-label-lg">Лечение каналов</span>
+                <span class="service-card__value text-h4">от&nbsp;6&nbsp;900&nbsp;₽</span>
+              </div>
             </div>
+          </article>
+          <article class="service-card reveal">
+            <h3 class="service-card__title text-h4">Гигиена и&nbsp;чистка</h3>
+            <div class="service-card__details">
+              <div class="service-card__detail">
+                <span class="service-card__label text-label-lg">Комплексная чистка</span>
+                <span class="service-card__value text-h4">от&nbsp;5&nbsp;900&nbsp;₽</span>
+              </div>
+              <div class="service-card__detail">
+                <span class="service-card__label text-label-lg">Air Flow</span>
+                <span class="service-card__value text-h4">от&nbsp;3&nbsp;900&nbsp;₽</span>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="services-note reveal">
+          <div class="services-note__text">
+            <p class="services-note__title text-h5">Каждый случай индивидуален</p>
+            <p class="services-note__sub text-body-lg">точная стоимость лечения определяется в&nbsp;клинике после консультации</p>
           </div>
+          <button class="btn btn--primary btn--lg text-button-lg" data-open-modal>Записаться на&nbsp;бесплатный прием</button>
+        </div>
         </div>
       </div>
     </section>
